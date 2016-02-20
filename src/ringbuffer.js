@@ -109,19 +109,8 @@ Object.getOwnPropertyNames(Array.prototype).forEach(prop => {
   }
 });
 
-if (Symbol.iterator) {
-  ringProto[Symbol.iterator] = function() {
-    // Like array iterator, length and items may change after init
-    var index = 0;
-    return {
-      next: () => {
-        return {
-          value: index < this.length ? this[index] : void 0,
-          done: ++index > this.length
-        };
-      }
-    };
-  };
+if (typeof Symbol === 'function' && Symbol.hasOwnProperty('iterator')) {
+  ringProto[Symbol.iterator] = arrayProto[Symbol.iterator];
 }
 
 // Cache of index getters and setters
