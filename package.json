@@ -1,6 +1,6 @@
 {
-  "name": "ringbuffer",
-  "version": "0.0.1",
+  "name": "ringbuff",
+  "version": "1.0.0",
   "description": "A \"magical\" ring buffer implemented with clever define properties",
   "main": "dist/ringbuffer.js",
   "scripts": {
