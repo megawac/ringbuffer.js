@@ -24,6 +24,13 @@ describe('unshift', function() {
     assert.deepEqual(buffer.slice(), [3, 1, 2]);
   });
 
+  it('multi push before a multi unshift', function() {
+    var buffer = new RingBuffer(5);
+    buffer.push(3, 4, 5);
+    buffer.unshift(1, 2);
+    assert.deepEqual(buffer.slice(), [1, 2, 3, 4, 5]);
+  });
+
   it('returns length', function() {
     var buffer = new RingBuffer(5);
     assert.equal(buffer.unshift(1, 2, 3), 3);
